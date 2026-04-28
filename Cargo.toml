@@ -1,0 +1,23 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gpui = { git = "https://github.com/zed-industries/zed" }
+gpui-component = { git = "https://github.com/longbridge/gpui-component" }
+gpui-component-assets = { git = "https://github.com/longbridge/gpui-component" }
+gpui_platform = { git = "https://github.com/zed-industries/zed.git", features = ["x11", "wayland"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[patch.crates-io]
+gpui = { git = "https://github.com/zed-industries/zed" }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+debug = false
