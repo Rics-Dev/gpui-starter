@@ -14,7 +14,8 @@ impl AppTitleBar {
 
 impl Render for AppTitleBar {
     fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
-        TitleBar::new().child(
+        TitleBar::new()
+            .child(
             h_flex()
                 .w_full()
                 .pr_2()
@@ -28,7 +29,6 @@ impl Render for AppTitleBar {
                         .px_2()
                         .gap_2()
                         .on_mouse_down(MouseButton::Left, |_, _, cx| cx.stop_propagation())
-                        .child(crate::APP_TITLE),
                 ),
         )
     }
